@@ -24,14 +24,14 @@ public class Game{
 
             String input = scanner.nextLine().toUpperCase();
 
-            if(input.equals("HELP") || input.equals("P")){
+            if(input.equals("HELP") || input.equals("H")){
                 System.out.println("CONTINUE | C: Move to the next room. The room must be clear in order for you to move on.");
                 System.out.println("VIEW INVENTORY | I: View what is in your inventory and the amount of each item you have.");
                 System.out.println("VIEW STATS | P: View you player's stats.");
                 System.out.println("ATTACK | A: Attack using your currently equiped weapon.");
                 System.out.println("USE | S: Use an item.");
                 System.out.println("RUN | D: You attempt to skip the current room.");
-                System.out.println("HELP | P: Brings up the commands you can use.");
+                System.out.println("HELP | H: Brings up the commands you can use.");
             }else if(input.equals("CONTINUE") || input.equals("C")){
                 if(enemy != null){
                     System.out.println("The monster blocks your path.");
@@ -64,7 +64,7 @@ public class Game{
                     System.out.println("You hit the " + enemy.getName() + " for " + damage + " damage.");
                     if(enemy.getHealth() <= 0){
                         System.out.println("You killed the " + enemy.getName());
-                        System.out.println("The " + enemy.getName() + " some loot.");
+                        System.out.println("The " + enemy.getName() + " dropped some loot.");
                         player.addInventory(enemy.dropLoot());
                         enemy = null;
                         continue;
@@ -127,6 +127,8 @@ public class Game{
             }
 
         }
+
+        scanner.close();
 
     }
 
